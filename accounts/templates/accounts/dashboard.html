@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- Add any necessary CSS here -->
+</head>
+<body>
+    <h2>Welcome, {{ user.username }}!</h2>
+    
+    <a href="{% url 'logout' %}">Logout</a>
+
+    <div class="container">
+        <h1 class="my-4">Dashboard</h1>
+        
+        <!-- Availability Section -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2>Availabilities</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Date</th>
+                            <th>Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for availability in availabilities %}
+                            <tr>
+                                <td>{{ availability.property }}</td>
+                                <td>{{ availability.date }}</td>
+                                <td>{{ availability.is_available }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Bookings Section -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2>Bookings</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Property</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                            <tr>
+                                <td>{{ booking.user }}</td>
+                                <td>{{ booking.property }}</td>
+                                <td>{{ booking.start_date }}</td>
+                                <td>{{ booking.end_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Payments Section -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2>Payments</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for payment in payments %}
+                            <tr>
+                                <td>{{ payment.user }}</td>
+                                <td>{{ payment.amount }}</td>
+                                <td>{{ payment.date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Properties Section -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2>Properties</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Owner</th>
+                            <th>Address</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for property in properties %}
+                            <tr>
+                                <td>{{ property.owner }}</td>
+                                <td>{{ property.address }}</td>
+                                <td>{{ property.price }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2>Reviews</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>User</th>
+                            <th>Rating</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for review in reviews %}
+                            <tr>
+                                <td>{{ review.property }}</td>
+                                <td>{{ review.user }}</td>
+                                <td>{{ review.rating }}</td>
+                                <td>{{ review.comment }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

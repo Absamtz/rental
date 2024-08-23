@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .confirmation-container {
+            margin-top: 20px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-img-top {
+            border-radius: 0.25rem;
+        }
+        .card-body {
+            padding: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container confirmation-container">
+        <h1 class="my-4">Order Confirmation</h1>
+        <div class="card">
+            <!-- Assuming you have an image for the house -->
+            <img src="{{ house.image.url }}" class="card-img-top" alt="{{ house.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ house.name }}</h5>
+                <p class="card-text"><strong>Location:</strong> {{ house.location }}</p>
+                <p class="card-text"><strong>Price:</strong> ${{ house.price }}</p>
+                <p class="card-text"><strong>Description:</strong> {{ house.description }}</p>
+                <!-- Optional: Add a button or link to go back or view more details -->
+                <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

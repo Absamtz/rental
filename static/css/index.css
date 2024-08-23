@@ -1,0 +1,25 @@
+:root{
+  --lineColor: #eee;
+}
+  .navbar-brand {
+    letter-spacing: 3px;
+    color: #000000;
+  }
+  .text-break{
+font-size: x-large;
+font-weight: bolder;
+text-align: center;
+  }
+  .empty_section .item{
+    padding: 30px;
+    border: 1px solid var(--lineColor);
+    text-align: center;
+    margin: 20px;
+
+
+  }
+  .houses img{
+    width: 100%;
+    height: 300px;
+  }
+  
